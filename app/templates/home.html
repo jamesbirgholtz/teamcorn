@@ -1,0 +1,113 @@
+{% block content %}
+
+<style>
+
+  /* Used to make sure the background photo covers the whole page */
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Prevents scrollbars */
+  }
+
+  /* Style for your cornfield image */
+  #cornfield {
+    background: url("{{ url_for('static', filename='images/corn_field.jpg') }}") no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh; /* Full height of the viewport */
+    width: 100vw; /* Full width of the viewport */
+    display: flex;
+    justify-content: center; /* Center children horizontally */
+    align-items: center; /* Center children vertically */
+    position: relative; /* Needed for absolute positioning of the login form */
+    transition: all 1.5s;
+  }
+  
+  /* Style for buttons */
+  #loginBtn, #regBtn {
+    padding: 10px 20px;
+    background-color: maroon;
+    color: white; /* Text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px; /* Space between buttons */
+  }
+
+  /* Hover effect for buttons */
+  #loginBtn:hover, #regBtn:hover {
+    background-color: #400000; 
+  }
+
+  /* Disappear effect */
+  .disappear {
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0s 0.5s, opacity 0.5s linear; /* Fade effect */
+  }
+  
+  /* Initially hide the login form */
+  #loginForm {
+    width: 300px; /* Width of your form */
+    margin: 0 auto; /* Horizontal centering */
+    display: none;
+  }
+
+  </style>
+  </head>
+
+
+  <body>
+
+  <div id="cornfield">
+    <button id="loginBtn">Log in</button>
+    <button id="regBtn" onclick="location.href='{{ url_for('register') }}'">Register</button>
+  </div>
+  
+  <div id="loginForm">
+    <form method="post">
+        {{ form.hidden_tag() }} <!-- Need for CSRF token -->
+        <p>
+            {{ form.username.label }} <br>
+            {{ form.username(size=30) }}
+        </p>
+        <p>
+            {{ form.password.label }} <br>
+            {{ form.password(size=30) }}
+        </p>
+        <p>
+            {{ form.submit() }}
+        </p>
+    </form>
+  </div>
+
+<script>
+  // JavaScript to handle the click event and animate the transition
+    document.getElementById('loginBtn').onclick = function() {
+    var cornfield = document.getElementById('cornfield');
+    var loginForm = document.getElementById('loginForm');
+  
+    // Animate cornfield image moving to the top
+    cornfield.style.height = '35vh'; // Adjust as needed
+  
+    // Show the login form
+    loginForm.style.display = 'block';
+  };
+</script>
+
+<script>
+  // Function to hide buttons
+  function hideButtons() {
+  document.getElementById('loginBtn').classList.add('disappear');
+  document.getElementById('regBtn').classList.add('disappear');
+  }
+  
+  // Add event listeners to buttons
+  document.getElementById('loginBtn').addEventListener('click', hideButtons);
+  document.getElementById('regBtn').addEventListener('click', hideButtons);
+</script>
+
+
+{% endblock %}

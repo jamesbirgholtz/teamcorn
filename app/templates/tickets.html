@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block title %} Tickets {% endblock %}
+
+{% block content %}
+<h3>{{ current_user.name }}'s Open Ticket(s)</h3>
+<table>
+    <tr>
+        <th>Ticket ID</th>
+        <th>Created by</th>
+        <th>Department</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Location</th>
+        <th>Attachment(s)</th>
+        <th>Edit</th>
+    </tr>
+    {% if tickets %}
+        {% for ticket in tickets %}
+        <tr>
+            <td>{{ ticket.id }}</td>
+            <td>{{ ticket.created_by }}</td>
+            <td>{{ ticket.dept }}</td>
+            <td>{{ ticket.title }}</td>
+            <td>{{ ticket.description }}</td>
+            <td>{{ ticket.location }}</td>
+            <td>{{ ticket.attachment }}</td>
+            <td><a href="{{ url_for('edit_ticket', ticket_id=ticket.id) }}" class="btn btn-primary">Edit</a></td>
+        </tr>
+        {% endfor %}
+    {% else %}
+        <tr>
+            <td colspan="8">No tickets found :(</td>
+        </tr>
+    {% endif %}
+</table>
+
+<!--
+<table style="width:100%">
+    <tr>
+      <th>Ticket Name</th>
+      <th>Ticket Date</th> 
+      <th>Department</th>
+    </tr>
+    <tr>
+      <td>Big Bug in Code</td>
+      <td>Right now</td>
+      <td>Everyone!!</td>
+    </tr>
+  </table>
+  -->
+{% endblock %}

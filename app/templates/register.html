@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block title %} Register {% endblock %}
+
+{% block content %}
+<h2>Register</h2>
+<form method="post">
+    {{ form.hidden_tag() }} <!-- Needed for CSRF token -->
+    <p>
+        {{form.name.label}} <br>
+        {{form.name(size=30)}}
+    </p>
+    <p>
+        {{form.username.label}} <br>
+        {{form.username(size=30)}}
+    </p>
+    <p>
+        {{form.email.label}} <br>
+        {{form.email(size=30)}}
+    </p>
+    <p>
+        {{form.password.label}} <br>
+        {{form.password(size=30)}}
+    </p>
+    <p>
+        {{form.role.label}} <br>
+        {% for option in form.role %}
+            {{ option }} {{ option.label }}
+        {% endfor %}
+    </p>
+    <p>
+        {{form.dept.label}} <br>
+        {% for option in form.dept %}
+            {{ option }} {{ option.label }}
+        {% endfor %}
+    </p>
+    <p>{{form.submit}}</p>
+</form>
+
+<button onclick="location.href='/'">Cancel / Back</button>
+{% endblock %}

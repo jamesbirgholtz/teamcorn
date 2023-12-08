@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+{% block title %} Submit New Ticket {% endblock %}
+
+{% block content %}
+<h3>Submit new ticket:</h3>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.created_by.label }} <br> <!-- Individual Who is requesting service -->
+        {{ form.created_by(size=30) }}
+    </p>
+    <p>
+        {{ form.dept.label }} <br>
+        {{ form.dept(size=30) }}
+    </p>
+    <p>
+        {{ form.title.label }} <br> <!-- Dept. they're in? -->
+        {{ form.title(size=30) }}
+    </p>
+    <p>
+        {{ form.description.label }} <br> <!-- Brief title of issue -->
+        {{ form.description(size=30) }}
+    </p>
+    <p>
+        {{ form.location.label }} <br> <!-- Where did the issue take place -->
+        {{ form.location(size=30) }}
+    </p>
+    <p>
+        {{ form.attachment.label }} <br> <!-- Attach images or files that pertain to the issue -->
+        {{ form.attachment(size=30) }}
+    </p>
+    <p>
+        {{ form.submit() }}
+    </p>
+</form>
+<!--
+<body>
+   <form action="/submit_form" method="post">
+       <div style="width:600px; margin:auto;">
+           <h3>Requestor:</h3>
+           Individual Who is requesting service
+           <br>
+           <input type="text" id="name" name="name" required size="80">
+       </div>
+       <br>
+       <div style="width:600px; margin:auto;">
+         <h3>Department:</h3>
+             Individual Who is requesting service
+         <br>
+             <input type="text" id="dept" dept="dept" required size="80">
+         <br>
+       </div>
+       <h1></h1>
+       <div style="width:600px; margin:auto;">
+           <h3>Title Of Request:</h3>
+           Brief title of issue
+           <br>
+           <input type="text" id="title" title="title" required size="80">
+           <br>
+       </div>
+       <br>
+       <div style="width:600px; margin:auto;">
+           <h3>Description:</h3>
+           Description of the issue
+           <br>
+           <textarea name="Description" rows="20" cols="80">
+           </textarea> 
+       </div>
+       
+       <div style="width:600px; margin:auto;">
+           <h3>Location:</h3>
+           Where did the issue take place
+           <br>
+           <input type="text" id="loc" loc="location" required size="80">
+           <br>
+       </div>
+       <div style="width:600px; margin:auto;">
+           <h3>Attachments:</h3>
+           Attach images or files that pertain to the issue
+           <br>
+           <input type="file" id="myFile" name="filename">
+           <br>
+       </div>
+       <br>
+       <div style="width:600px; margin:auto;">
+           <input type="submit" class="like" value="Submit Form" />
+       </div>
+   </form>
+   </body> -->
+{% endblock %}

@@ -1,0 +1,86 @@
+.message {
+    font-weight: 600;
+    color: blue;
+}
+
+.navbar {
+    background-color: maroon;
+    font-size: 1em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    padding: 8px 5px 8px 5px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.navbar-brand {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.navbar-item {
+    font-variant: small-caps;
+    margin-left: 30px;
+}
+
+.body-content {
+    padding: 5px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px;
+}
+
+/* Dark mode styles */
+.dark-mode {
+    background-color: rgb(43, 42, 42);
+    color: rgb(221, 220, 220);
+
+    table, td, th {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+        color: aliceblue;
+    }
+    th {
+        background-color: maroon;
+    }
+    
+    tr:nth-child(even) {
+    background-color: #757474;
+    }
+    tr:nth-child(odd) {
+    background-color: #f3eeee;
+    }
+}
+
+.light-mode {
+    background-color: rgb(196, 196, 196);
+    color: rgb(0, 0, 0);
+
+    table, td, th {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+    }
+    th {
+        background-color: maroon;
+        color: white;
+    }
+
+    tr:nth-child(even) {
+    background-color: #c9c6c6;
+    }
+    tr:nth-child(odd) {
+    background-color: #b3afaf;
+    }
+}

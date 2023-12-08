@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block title %} Edit Ticket {% endblock %}
+
+{% block content %}
+<h3>Edit ticket:</h3>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.created_by.label }} <br> <!-- Individual Who is requesting service -->
+        {{ form.created_by(size=30) }}
+    </p>
+    <p>
+        {{ form.dept.label }} <br>
+        {{ form.dept(size=30) }}
+    </p>
+    <p>
+        {{ form.title.label }} <br> <!-- Dept. they're in? -->
+        {{ form.title(size=30) }}
+    </p>
+    <p>
+        {{ form.description.label }} <br> <!-- Brief title of issue -->
+        {{ form.description(size=30) }}
+    </p>
+    <p>
+        {{ form.location.label }} <br> <!-- Where did the issue take place -->
+        {{ form.location(size=30) }}
+    </p>
+    <p>
+        {{ form.attachment.label }} <br> <!-- Attach images or files that pertain to the issue -->
+        {{ form.attachment(size=30) }}
+    </p>
+    <p>
+        {{ form.submit() }}
+    </p>
+</form>
+{% endblock %}
