@@ -1,3 +1,4 @@
+#!/usr/bin/env python3 
 from flask import Flask, render_template, request, redirect, url_for
 from forms import RegisterForm, LoginForm, TicketForm      # Import forms from forms.py
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
@@ -137,4 +138,4 @@ def edit_ticket(ticket_id):
     return render_template('edit_ticket.html', form=form)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0',port="8000",debug=True)
