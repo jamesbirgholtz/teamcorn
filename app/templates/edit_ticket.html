@@ -7,30 +7,48 @@
     {{ form.hidden_tag() }}
     <p>
         {{ form.created_by.label }} <br> <!-- Individual Who is requesting service -->
-        {{ form.created_by(size=30) }}
+        <div style="color: black;">{{ form.created_by(size=30) }}</div>
     </p>
     <p>
         {{ form.dept.label }} <br>
-        {{ form.dept(size=30) }}
+        <div style="color: black;">{{ form.dept(size=4) }}</div>
     </p>
     <p>
         {{ form.title.label }} <br> <!-- Dept. they're in? -->
-        {{ form.title(size=30) }}
+        <div style="color: black;">{{ form.title(size=30) }}</div>
     </p>
+    {% if form.assigned_to %}
+    <p>
+        {{ form.assigned_to.label }} <br> <!-- Who is the ticket assigned to -->
+        <div style="color: black;">{{ form.assigned_to(size=30) }}</div>
+    </p>
+    {% endif %}
+    {% if form.status %}
+    <p>
+        {{ form.status.label }} <br> <!-- Status of the ticket -->
+        <div style="color: black;">{{ form.status(size=3) }}</div>
+    </p>
+    {% endif %}
+    {% if form.priority %}
+    <p>
+        {{ form.priority.label }} <br> <!-- Priority of the ticket -->
+        <div style="color: black;">{{ form.priority(size=3) }}</div>
+    </p>
+    {% endif %}
     <p>
         {{ form.description.label }} <br> <!-- Brief title of issue -->
-        {{ form.description(size=30) }}
+        <div style="color: black;">{{ form.description(size=30) }}</div>
     </p>
     <p>
         {{ form.location.label }} <br> <!-- Where did the issue take place -->
-        {{ form.location(size=30) }}
+        <div style="color: black;">{{ form.location(size=3) }}</div>
     </p>
     <p>
-        {{ form.attachment.label }} <br> <!-- Attach images or files that pertain to the issue -->
-        {{ form.attachment(size=30) }}
-    </p>
-    <p>
-        {{ form.submit() }}
+        <div style="color: black;">{{ form.submit() }}</div>
     </p>
 </form>
 {% endblock %}
+<footer>
+    <hr/>
+    <p>Team Corn, LLC. &copy; 2023</p>
+</footer>

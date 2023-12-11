@@ -3,38 +3,95 @@
 
 {% block content %}
 <h2>Register</h2>
-<form method="post">
+<form id="registerForm" method="post" onsubmit="return validateForm()">
     {{ form.hidden_tag() }} <!-- Needed for CSRF token -->
     <p>
         {{form.name.label}} <br>
-        {{form.name(size=30)}}
+        <div style="color: black;">{{form.name(size=30)}}</div>
+        
     </p>
     <p>
-        {{form.username.label}} <br>
-        {{form.username(size=30)}}
+        {{ form.username.label }} <br>
+        <div style="color: black;">{{ form.username(size=30) }}</div>
+        {% if form.username.errors %}
+            {% for error in form.username.errors %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endfor %}
+        {% endif %}
     </p>
     <p>
-        {{form.email.label}} <br>
-        {{form.email(size=30)}}
+        {{ form.email.label }} <br>
+        <div style="color: black;">{{ form.email(size=30) }}</div>
+        {% if form.email.errors %}
+            {% for error in form.email.errors %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endfor %}
+        {% endif %}
     </p>
     <p>
-        {{form.password.label}} <br>
-        {{form.password(size=30)}}
-    </p>
-    <p>
-        {{form.role.label}} <br>
-        {% for option in form.role %}
-            {{ option }} {{ option.label }}
-        {% endfor %}
-    </p>
+        {{ form.password.label }} <br>
+        <div style="color: black;">{{ form.password(size=30) }}</div>
+        {% if form.password.errors %}
+            {% for error in form.password.errors %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+    </p>    
     <p>
         {{form.dept.label}} <br>
         {% for option in form.dept %}
             {{ option }} {{ option.label }}
         {% endfor %}
     </p>
-    <p>{{form.submit}}</p>
+    <p style="color: black;">{{form.submit}}</p>
 </form>
 
-<button onclick="location.href='/'">Cancel / Back</button>
+<button onclick="location.href='/'" style="color: black;">Cancel / Back</button>
+
+<script>  
+    function validateForm() {
+        let username = document.forms["RegisterForm"]["username"].value;
+        let email = document.forms["RegisterForm"]["email"].value;
+        let password = document.forms["RegisterForm"]["password"].value;
+        let dept = document.forms["RegisterForm"]["dept"].value;
+    
+        // Username validation
+        let usernameFormat = /^[a-zA-Z]+\.[a-zA-Z]+[1-9]+$/;
+        if (!username.match(usernameFormat)) {
+            alert("Username must be in the format 'firstname.lastname(number 1-9)'");
+            return false;
+        }
+    
+        // Email validation
+        let emailFormat = /^[a-zA-Z]+\.[a-zA-Z]+[1-9]+@corn\.com$/;
+        if (!email.match(emailFormat)) {
+            alert("Email must be in the format 'firstname.lastname(number 1-9)@corn.com'");
+            return false;
+        }
+    
+        // Password validation
+        // Ensure it meets common requirements such as length, includes numbers, etc.
+        let passwordFormat = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+        if (!password.match(passwordFormat)) {
+            alert("Password must be at least 8 characters long, include a number, an uppercase and a lowercase letter.");
+            return false;
+        }
+    
+        // Department validation (assuring something is selected)
+        if (dept === "") {
+            alert("Please select a department.");
+            return false;
+        }
+    
+        return true; // Return true if all validations pass
+    }
+    </script>
+
+
+
+
 {% endblock %}
+<footer>
+    <hr/>
+    <p>Team Corn, LLC. &copy; 2023</p>
+</footer>
