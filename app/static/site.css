@@ -3,7 +3,7 @@
     color: blue;
 }
 
-.navbar {
+.navbars {
     background-color: maroon;
     font-size: 1em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -11,17 +11,17 @@
     padding: 8px 5px 8px 5px;
 }
 
-.navbar a {
+.navbars a {
     text-decoration: none;
     color: inherit;
 }
 
-.navbar-brand {
+.navbars-brand {
     font-size: 1.2em;
     font-weight: 600;
 }
 
-.navbar-item {
+.navbars-item {
     font-variant: small-caps;
     margin-left: 30px;
 }
@@ -40,16 +40,93 @@ th, td {
     padding: 8px;
 }
 
+
+
+
+.high-priority {
+    background-color: red;
+    color: white;
+  }
+
+  .medium-priority {
+    background-color: orange;
+    color: white;
+  }
+
+  .low-priority {
+    background-color: green;
+    color: white;
+  }
+
+  .open-status {
+    background-color: red;
+    color: white;
+  }
+
+  .in-progress-status {
+    background-color: orange;
+    color: white;
+  }
+
+  .resolved-status {
+    background-color: green;
+    color: white;
+  }
+
+  .headerSortDown:after,
+.headerSortUp:after {
+  content: ' ';
+  position: relative;
+  left: 2px;
+  border: 8px solid transparent;
+}
+
+.headerSortDown:after {
+  top: 10px;
+  border-top-color: black;
+}
+
+.headerSortUp:after {
+  bottom: 15px;
+  border-bottom-color: black;
+}
+
+.headerSortDown,
+.headerSortUp {
+  padding-right: 10px;
+}
+
+th{
+  color: black;
+}
+
+#myInput{
+  background-image: url('C://Users//Tobec//Downloads//search.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  color: black;
+}
+
+.input {
+    font-size: 16px;
+    font-family: inherit;
+    padding: 0.25em 0.5em;
+    background-color: #fff;
+    color: black;
+}
+.form {
+    color: black;
+}
 /* Dark mode styles */
 .dark-mode {
     background-color: rgb(43, 42, 42);
-    color: rgb(221, 220, 220);
+    color: aliceblue;
 
     table, td, th {
         border: 1px solid black;
         border-collapse: collapse;
         text-align: center;
-        color: aliceblue;
+        color: rgb(235, 235, 235);
     }
     th {
         background-color: maroon;
@@ -57,20 +134,34 @@ th, td {
     
     tr:nth-child(even) {
     background-color: #757474;
+    color: aliceblue;
     }
     tr:nth-child(odd) {
-    background-color: #f3eeee;
+    background-color: #949292;
+    color: rgb(0, 0, 0);
+    }
+
+    .pagination {
+        border: 1px solid black;
+        display: flex;
+        list-style: none;
+        padding: 0;
     }
 }
 
+
 .light-mode {
-    background-color: rgb(196, 196, 196);
+    background-color: #ffffff;
     color: rgb(0, 0, 0);
+
+    
 
     table, td, th {
         border: 1px solid black;
         border-collapse: collapse;
         text-align: center;
+        
+        color: rgb(235, 235, 235);
     }
     th {
         background-color: maroon;
@@ -78,9 +169,16 @@ th, td {
     }
 
     tr:nth-child(even) {
-    background-color: #c9c6c6;
+    background-color: #757575;
     }
     tr:nth-child(odd) {
-    background-color: #b3afaf;
+    background-color: #8d8d8d;
+    }
+
+    .pagination {
+        border: 1px solid black;
+        display: flex;
+        list-style: none;
+        padding: 0;
     }
 }
